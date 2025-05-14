@@ -1,0 +1,13 @@
+INFO         | Android emulator version 35.5.10.0 (build_id 13402964) (CL:N/A)
+INFO         | Graphics backend: gfxstream
+INFO         | Found systemPath /home/todor/Android/Sdk/system-images/android-34/default/x86_64/
+INFO         | Checking system compatibility:
+INFO         |   Checking: hasSufficientDiskSpace
+INFO         |      Ok: Disk space requirements to run avd: `Medium_Phone_API_34` are met
+INFO         |   Checking: hasSufficientHwGpu
+INFO         |      Ok: Hardware GPU requirements to run avd: `Medium_Phone_API_34` are passed
+INFO         |   Checking: hasSufficientSystem
+INFO         |      Ok: System requirements to run avd: `Medium_Phone_API_34` are met
+ERROR        | Running multiple emulators with the same AVD 
+ERROR        | is an experimental feature.
+ERROR        | Please use -read-only flag to enable this feature.
