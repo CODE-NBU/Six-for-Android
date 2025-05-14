@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Six for Android</string>
+    <string name="single_player_game_label">Single Player</string>
+    <string name="exit_game_label">Exit</string>
+    <string name="new_game_option">New Game</string>
 </resources>
+
