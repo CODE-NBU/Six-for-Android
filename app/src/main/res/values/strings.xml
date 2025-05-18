@@ -3,5 +3,24 @@
     <string name="single_player_game_label">Single Player</string>
     <string name="exit_game_label">Exit</string>
     <string name="new_game_option">New Game</string>
+    <string name="help_option">Help</string>
+    <string name="about_option">About</string>
+    <string name="exit_option">Exit</string>
+    <string name="about_text">
+Six for Android version 1.0
+\n
+Copyrights (C) 2025 ???
+\n
+\n
+designe by Steffen Mühlhäuser
+\n
+graphics by Ajša Zdravkovic
+\n
+programming by Todor Balabanov
+\n
+Sofia, Bulgaria
+    </string>
+    <string name="help_text">
+    </string>
 </resources>
 

@@ -3,6 +3,18 @@
 
     <item
         android:id="@+id/new_game"
-        android:title="@string/new_game_menu" />
+        android:title="@string/new_game_option" />
+
+    <item
+        android:id="@+id/help"
+        android:title="@string/help_option" />
+
+    <item
+        android:id="@+id/about"
+        android:title="@string/about_option" />
+
+    <item
+        android:id="@+id/exit"
+        android:title="@string/exit_option" />
 
 </menu>
