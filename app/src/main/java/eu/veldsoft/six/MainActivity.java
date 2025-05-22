@@ -1,5 +1,8 @@
 package eu.veldsoft.six;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -31,11 +34,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-	//TODO Move title bar in redraw helping function.        
-        String title = "";
-        title += getString(R.string.app_name);
-        setTitle(title);
     }
     
     /**
@@ -69,6 +67,30 @@ public class MainActivity extends Activity {
         }
 
     	return true;
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    	super.onActivityResult(requestCode, resultCode, data);
+    	
+        /*
+         * Do not handle other results than OK.
+         */
+        if (resultCode != RESULT_OK) {
+            return;
+        }
+        
+        if (requestCode == LAUNCH_PLAYERS_LIST_ACTIVITY) {
+        	List<String> names = new ArrayList<String>();
+        	
+                names.add(data.getCharSequenceExtra("player1Name").toString());
+                names.add(data.getCharSequenceExtra("player2Name").toString());
+                
+                //TODO Start new game.
+        }
     }
 }
 

@@ -6,6 +6,8 @@
     <string name="help_option">Help</string>
     <string name="about_option">About</string>
     <string name="exit_option">Exit</string>
+    <string name="done_caption">Done</string>
+    <string name="computer_label">Computer</string>
     <string name="about_text">
 Six for Android version 1.0
 \n
