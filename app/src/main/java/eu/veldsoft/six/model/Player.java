@@ -1,5 +1,8 @@
 package eu.veldsoft.six.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  */
@@ -9,6 +12,10 @@ class Player {
      */
     private String name = "";
 
+	/**
+	 */
+	private List<Tile> tiles = new ArrayList<>();
+
     /**
      * @param name
      */
@@ -16,6 +23,28 @@ class Player {
         super();
         this.name = name;
     }
+
+	/**
+	 */
+	void reset() {
+		tiles.clear();
+	}
+	
+	/**
+	 */
+	void take(Tile tile) {
+		tiles.add(tile);
+	}
+	
+	/**
+	 */
+	Tile give() throws RuntimeExcpetion {
+		if(tiles.size() <= 0) {
+			throw new RuntimeExcpetion( "Tiles list is empty!" );
+		}
+		
+		return tiles.remove( 0 );
+	}
 
     /**
      * @return

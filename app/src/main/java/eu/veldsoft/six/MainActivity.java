@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.app.Activity;
 import android.os.Bundle;
 import android.content.Intent;
+import android.widget.Toast;
 
 import eu.veldsoft.six.model.Board;
 
@@ -89,7 +90,10 @@ public class MainActivity extends Activity {
                 names.add(data.getCharSequenceExtra("player1Name").toString());
                 names.add(data.getCharSequenceExtra("player2Name").toString());
                 
-                //TODO Start new game.
+                if(board.newGame(names) == false) {
+                	Toast.makeText(MainActivity.this, R.string.game_not_started_text, Toast.LENGTH_LONG).show();
+                } else {
+                }
         }
     }
 }

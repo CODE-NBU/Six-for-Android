@@ -3,14 +3,37 @@ package eu.veldsoft.six.model;
 /**
  *
  */
-enum Tile {
-    /**
-     *
-     */
-    BLACK,
+class Tile {
+	/**
+	 */
+	static enum Kind {
+	    /**
+	     *
+	     */
+	    BLACK,
 
-    /**
-     *
-     */
-    RED,
+	    /**
+	     *
+	     */
+	    RED,
+	}
+	
+	/**
+	 */
+	private Kind kind = null;
+
+	/**
+	 */	
+	Tile(Kind kind) {
+		super();
+		
+		this.kind = kind;
+	}
+	
+	/**
+	 */
+	Kind kind() {
+		return kind;
+	}
 }
+
