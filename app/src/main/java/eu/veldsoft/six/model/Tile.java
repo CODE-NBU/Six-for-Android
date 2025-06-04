@@ -10,12 +10,34 @@ class Tile {
 	    /**
 	     *
 	     */
-	    BLACK,
+	    NONE('E'),
+	    
+	    /**
+	     *
+	     */
+	    BLACK('B'),
 
 	    /**
 	     *
 	     */
-	    RED,
+	    RED('R');
+	    
+	/**
+	*/
+		private char symbol;
+		
+	/**
+	*/
+	    private Kind(char symbol) {
+	    	this.symbol = symbol;
+	    }
+	    
+	/**
+	*/
+	    char symbol() {
+	    	return symbol;
+	    }
+	
 	}
 	
 	/**

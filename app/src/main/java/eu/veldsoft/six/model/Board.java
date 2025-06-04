@@ -17,6 +17,7 @@ public class Board {
 		static final int NW = 5;
 		Tile tile = null;
 		Node links[] = {null, null, null, null, null, null, };
+		boolean visited;
 	}
 
     /**
@@ -28,6 +29,11 @@ public class Board {
      *
      */
     private List<Tile> tiles = new ArrayList<>();
+
+    /**
+     *
+     */
+    private Node center = null;
 
     /**
      * The player who is playing at the moment.
@@ -47,6 +53,7 @@ public class Board {
     }
     
     /**
+     * 
      */
     public boolean newGame(List<String> playersNames) {
     	if(playersNames.size() != 2) {
@@ -72,8 +79,11 @@ public class Board {
 		}
 	}
 
-	players.get(0).give();
-	players.get(1).give();
+           /* Initiialize first tiles. */
+           center = new Node();
+	   center.links[ Node.W ] = new Node();
+	center.tile = players.get(0).give();
+	center.links[ Node.W ].tile = players.get(1).give(); 
 
         /*
          * The first player plays after start of the game.
@@ -81,6 +91,34 @@ public class Board {
         playing = ((players.size() <= 0) ? null : players.get(0));
             	
     	return true;
+    }
+
+    /**
+     */
+    private void clear(Node place) {
+    	//TODO Make list of all nodes and clear visited flag.
+    }
+
+    private void trace(Node place, char buffer[][], int x, int y) {
+    	if(place.tile == null) {
+    		return;
+    	}
+    	
+    	place.visited = true;
+    	buffer[x][y] = place.tile.kind().symbol();
+    }
+    
+    /**
+     */
+    public String state() {
+    	String state = "";
+    	
+    	char buffer[][] = new char[2*tiles.size()+1][2*tiles.size()+1];
+    	//TODO Initialze buffer.
+    	
+    	trace(center, buffer, tiles.size(), tiles.size());
+    	
+    	return state;
     }
 }
 

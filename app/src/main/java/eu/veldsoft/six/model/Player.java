@@ -1,5 +1,6 @@
 package eu.veldsoft.six.model;
 
+import java.lang.RuntimeException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,9 +39,9 @@ class Player {
 	
 	/**
 	 */
-	Tile give() throws RuntimeExcpetion {
+	Tile give() throws RuntimeException {
 		if(tiles.size() <= 0) {
-			throw new RuntimeExcpetion( "Tiles list is empty!" );
+			throw new RuntimeException( "Tiles list is empty!" );
 		}
 		
 		return tiles.remove( 0 );
