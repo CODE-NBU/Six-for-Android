@@ -9,3 +9,4 @@ gradle build &&
 adb install ./app/build/outputs/apk/debug/app-debug.apk &&
 adb shell monkey -p eu.veldsoft.six -c android.intent.category.LAUNCHER 1
 
+astyle *.java --indent=force-tab --style=java / -A2 --recursive
