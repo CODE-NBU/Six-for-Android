@@ -6,4 +6,9 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <eu.veldsoft.six.HexGridView
+        android:id="@+id/gameGrid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 </LinearLayout>
