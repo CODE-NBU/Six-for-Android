@@ -35,7 +35,7 @@ class HexGridView extends View {
 	private int selectedQ = -1;
 	private int selectedR = -1;
 
-	HexGridView(Context context, @Nullable AttributeSet attributes) {
+	public HexGridView(Context context, @Nullable AttributeSet attributes) {
 		super(context, attributes);
 
 		hexPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
