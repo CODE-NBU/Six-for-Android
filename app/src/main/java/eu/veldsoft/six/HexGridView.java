@@ -1,11 +1,13 @@
 package eu.veldsoft.six;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -67,6 +69,20 @@ public class HexGridView extends View {
 
 	public HexGridView(Context context, @Nullable AttributeSet attributes) {
 		super(context, attributes);
+
+		TypedArray array = context.getTheme().obtainStyledAttributes(
+							   attributes,
+							   R.styleable.HexGridView,
+							   0, 0);
+
+		try {
+			rows = array.getInteger(R.styleable.HexGridView_rows, 0);
+			columns = array.getInteger(R.styleable.HexGridView_columns, 0);
+			Log.i("TAG01", "" + rows);
+			Log.i("TAG01", "" + columns);
+		} finally {
+			array.recycle();
+		}
 
 		hexPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 		hexPaint.setColor(Color.LTGRAY);

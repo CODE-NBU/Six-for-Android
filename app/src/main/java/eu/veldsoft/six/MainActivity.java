@@ -36,8 +36,6 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		HexGridView grid = findViewById(R.id.gameGrid);
-		grid.rows(84);
-		grid.columns(84);
 		grid.radius(30f);
 		grid.offsetX(-1000);
 		grid.offsetY(0);
