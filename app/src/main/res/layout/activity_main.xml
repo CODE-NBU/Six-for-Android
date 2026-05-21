@@ -11,6 +11,14 @@
         android:id="@+id/gameGrid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:radius="30"
+        app:offset_x="0"
+        app:offset_y="0"
+        app:max_color="#FFFF0000"
+        app:min_color="#FF0000FF"
+        app:empty_color="#FFEFEFEF"
+        app:select_color="#FFFFFF00"
+        app:grid_color="#FF000000"
         app:rows="84"
         app:columns="84"/>
 

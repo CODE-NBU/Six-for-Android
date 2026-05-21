@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -20,12 +19,22 @@ public class HexGridView extends View {
 	/**
 	 * The paint for the hexagons representing empty cells.
 	 */
-	private Paint hexPaint;
+	private Paint emptyPaint;
+
+	/**
+	 * The paint for the min player cells.
+	 */
+	private Paint minPaint;
+
+	/**
+	 * The paint for the max player cells.
+	 */
+	private Paint maxPaint;
 
 	/**
 	 * The paint for the hexagons representing selected cells.
 	 */
-	private Paint selectedPaint;
+	private Paint selectPaint;
 
 	/**
 	 * The paint for the grid lines.
@@ -75,25 +84,40 @@ public class HexGridView extends View {
 							   R.styleable.HexGridView,
 							   0, 0);
 
+		int emptyColor, selectColor, gridColor, maxColor, minColor;
 		try {
 			rows = array.getInteger(R.styleable.HexGridView_rows, 0);
 			columns = array.getInteger(R.styleable.HexGridView_columns, 0);
-			Log.i("TAG01", "" + rows);
-			Log.i("TAG01", "" + columns);
+			radius = array.getFloat(R.styleable.HexGridView_radius, 0F);
+			offsetX = array.getInteger(R.styleable.HexGridView_offset_x, 0);
+			offsetY = array.getInteger(R.styleable.HexGridView_offset_y, 0);
+			maxColor = array.getColor(R.styleable.HexGridView_max_color, Color.RED);
+			minColor = array.getColor(R.styleable.HexGridView_min_color, Color.BLUE);
+			emptyColor = array.getColor(R.styleable.HexGridView_empty_color, Color.GRAY);
+			selectColor = array.getColor(R.styleable.HexGridView_select_color, Color.YELLOW);
+			gridColor = array.getColor(R.styleable.HexGridView_grid_color, Color.BLACK);
 		} finally {
 			array.recycle();
 		}
 
-		hexPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-		hexPaint.setColor(Color.LTGRAY);
-		hexPaint.setStyle(Paint.Style.FILL);
+		emptyPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+		emptyPaint.setColor(emptyColor);
+		emptyPaint.setStyle(Paint.Style.FILL);
 
-		selectedPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-		selectedPaint.setColor(Color.YELLOW);
-		selectedPaint.setStyle(Paint.Style.FILL);
+		selectPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+		selectPaint.setColor(selectColor);
+		selectPaint.setStyle(Paint.Style.FILL);
+
+		minPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+		minPaint.setColor(minColor);
+		minPaint.setStyle(Paint.Style.FILL);
+
+		maxPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+		maxPaint.setColor(maxColor);
+		maxPaint.setStyle(Paint.Style.FILL);
 
 		gridPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-		gridPaint.setColor(Color.BLACK);
+		gridPaint.setColor(gridColor);
 		gridPaint.setStyle(Paint.Style.STROKE);
 		gridPaint.setStrokeWidth(2f);
 	}
@@ -180,9 +204,9 @@ public class HexGridView extends View {
 				Path hex = createHexPath(center[0], center[1]);
 
 				if (c == selectedColumn && r == selectedRow) {
-					canvas.drawPath(hex, selectedPaint);
+					canvas.drawPath(hex, selectPaint);
 				} else {
-					canvas.drawPath(hex, hexPaint);
+					canvas.drawPath(hex, emptyPaint);
 				}
 
 				canvas.drawPath(hex, gridPaint);

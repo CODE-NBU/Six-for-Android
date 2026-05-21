@@ -3,5 +3,13 @@
     <declare-styleable name="HexGridView">
         <attr name="rows" format="integer" />
         <attr name="columns" format="integer" />
+        <attr name="radius" format="float" />
+        <attr name="offset_x" format="integer" />
+        <attr name="offset_y" format="integer" />
+        <attr name="max_color" format="color" />
+        <attr name="min_color" format="color" />
+        <attr name="empty_color" format="color" />
+        <attr name="select_color" format="color" />
+        <attr name="grid_color" format="color" />
     </declare-styleable>
 </resources>
